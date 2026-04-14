@@ -87,7 +87,7 @@ npm run lint       # Проверка кода линтером
 
 ### Автоматический деплой (рекомендуется)
 
-[![Deploy with Vercel](https://patchwork-phi.vercel.app/)](https://vercel.com/new/clone?repository-url=https://github.com/PCenjoyer/Patchwork)
+[![Deploy with Vercel]([https://patchwork-phi.vercel.app/](https://patchwork-phi.vercel.app/))](https://vercel.com/new/clone?repository-url=https://github.com/PCenjoyer/Patchwork)
 
 1. Нажмите кнопку **Deploy with Vercel** выше
 2. Авторизуйтесь через GitHub
