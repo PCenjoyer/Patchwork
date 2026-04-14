@@ -7,9 +7,9 @@
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vite.dev/)
-[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://patchwork-phi.vercel.app/)
 
-[Демо](#) · [Сообщить о баге](https://github.com/PCenjoyer/Patchwork/issues) · [Предложить идею](https://github.com/PCenjoyer/Patchwork/issues)
+[Демо](https://patchwork-phi.vercel.app/) · [Сообщить о баге](https://github.com/PCenjoyer/Patchwork/issues) · [Предложить идею](https://github.com/PCenjoyer/Patchwork/issues)
 
 </div>
 
@@ -87,7 +87,7 @@ npm run lint       # Проверка кода линтером
 
 ### Автоматический деплой (рекомендуется)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/PCenjoyer/Patchwork)
+[![Deploy with Vercel](https://patchwork-phi.vercel.app/)](https://vercel.com/new/clone?repository-url=https://github.com/PCenjoyer/Patchwork)
 
 1. Нажмите кнопку **Deploy with Vercel** выше
 2. Авторизуйтесь через GitHub
