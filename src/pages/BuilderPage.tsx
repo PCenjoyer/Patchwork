@@ -129,9 +129,21 @@ function BuilderShell({ loadedDoc, templateId }: ShellProps) {
     downloadFile(`${safeName}.html`, html, 'text/html;charset=utf-8');
   };
 
-  const handlePrintPdf = () => {
+  const [exportOpen, setExportOpen] = useState(false);
+
+  const openExportDialog = () => setExportOpen(true);
+  const closeExportDialog = () => setExportOpen(false);
+
+  const handlePrint = () => {
     const html = buildPrintableHtml(state.template, state.doc, lang);
     openPrintWindow(html);
+    closeExportDialog();
+  };
+
+  const handleSaveAsPdf = () => {
+    const html = buildPrintableHtml(state.template, state.doc, lang);
+    openPrintWindow(html);
+    closeExportDialog();
   };
 
   return (
@@ -161,7 +173,7 @@ function BuilderShell({ loadedDoc, templateId }: ShellProps) {
           <button type="button" className={styles.secondaryBtn} onClick={handleExportHtml}>
             {t('builder.exportHtml')}
           </button>
-          <button type="button" className={styles.secondaryBtn} onClick={handlePrintPdf}>
+          <button type="button" className={styles.secondaryBtn} onClick={openExportDialog}>
             {t('builder.printPdf')}
           </button>
           <button type="button" className={styles.primaryBtn} onClick={handleSave}>
@@ -178,6 +190,28 @@ function BuilderShell({ loadedDoc, templateId }: ShellProps) {
         </section>
         <PreviewPanel />
       </div>
+
+      {exportOpen && (
+        <div className={styles.modalOverlay} role="dialog" aria-modal="true" onClick={closeExportDialog}>
+          <div className={styles.modalCard} onClick={(e) => e.stopPropagation()}>
+            <h2 className={styles.modalTitle}>{t('builder.exportChooseTitle')}</h2>
+            <p className={styles.modalSubtitle}>{t('builder.exportChooseSubtitle')}</p>
+            <div className={styles.modalActions}>
+              <button type="button" className={styles.modalOption} onClick={handlePrint}>
+                <span className={styles.modalOptionTitle}>{t('builder.exportPrint')}</span>
+                <span className={styles.modalOptionHint}>{t('builder.exportPrintHint')}</span>
+              </button>
+              <button type="button" className={styles.modalOption} onClick={handleSaveAsPdf}>
+                <span className={styles.modalOptionTitle}>{t('builder.exportPdf')}</span>
+                <span className={styles.modalOptionHint}>{t('builder.exportPdfHint')}</span>
+              </button>
+            </div>
+            <button type="button" className={styles.modalClose} onClick={closeExportDialog}>
+              {t('builder.exportCancel')}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
