@@ -74,6 +74,18 @@ export function buildPrintableHtml(template: Template, doc: DocumentState, lang:
   }
   .block { margin: 0 0 14pt 0; page-break-inside: avoid; }
   .block p { margin: 0 0 8pt 0; text-align: justify; }
+  .watermark {
+    position: fixed;
+    bottom: 8mm;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 9pt;
+    color: #888;
+    letter-spacing: 0.5px;
+  }
+  .watermark a { color: #888; text-decoration: none; }
   @media print {
     main { padding: 0; }
     .block { break-inside: avoid; }
@@ -85,6 +97,7 @@ export function buildPrintableHtml(template: Template, doc: DocumentState, lang:
 <h1 class="doc-title">${escapeHtml(doc.title)}</h1>
 ${bodyHtml}
 </main>
+<div class="watermark"><a href="https://patchwork-phi.vercel.app/">patchwork-phi.vercel.app</a></div>
 </body>
 </html>`;
 }
