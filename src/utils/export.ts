@@ -102,15 +102,23 @@ export function downloadFile(filename: string, contents: string, mime: string) {
 }
 
 export function openPrintWindow(html: string) {
-  const win = window.open('', '_blank', 'noopener,noreferrer');
-  if (!win) return;
+  const win = window.open('', '_blank');
+  if (!win) {
+    alert('Не удалось открыть окно печати. Разрешите всплывающие окна для этого сайта.');
+    return;
+  }
   win.document.open();
   win.document.write(html);
   win.document.close();
-  win.addEventListener('load', () => {
+  const triggerPrint = () => {
     win.focus();
     win.print();
-  });
+  };
+  if (win.document.readyState === 'complete') {
+    setTimeout(triggerPrint, 100);
+  } else {
+    win.addEventListener('load', () => setTimeout(triggerPrint, 100));
+  }
 }
 
 export type { DocumentBlockInstance };
